@@ -21,5 +21,6 @@ $ grpcurl -plaintext -d '{"name": "foo", "price": 10.20}'  localhost:8081 produc
 Server:
 
 ```zsh
-$ 2024/03/18 01:43:06 http[200]-- 630.728µs -- /api/v1/list
+$ make runcomplete
+2024/03/18 01:43:06 http[200]-- 630.728µs -- /api/v1/list
 ```
