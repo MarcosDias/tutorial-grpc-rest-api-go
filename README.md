@@ -13,7 +13,7 @@ Client:
 
 ```zsh
 $ grpcurl -plaintext -d '{"name": "foo", "price": 10.20}'  localhost:8081 product.v1.ProductService/AddProduct
-$ {
+{
   "productId": "3f4fbf05-e83e-42e3-b832-48c7e5ae5195"
 }
 ```
