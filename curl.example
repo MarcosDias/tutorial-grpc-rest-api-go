@@ -1,0 +1,13 @@
+go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
+
+grpcurl -plaintext -d '{"name": "foo", "price": 10.20}'  localhost:8080 product.v1.ProductService/AddProduct
+grpcurl -plaintext -d '{"name": "bar", "price": 5.10}'  localhost:8080 product.v1.ProductService/AddProduct
+grpcurl -plaintext -d '{}'  localhost:8080 product.v1.ProductService/ListProducts
+grpcurl -plaintext -d '{"product_id": "<ID do foo>"}'  localhost:8080 product.v1.ProductService/DeleteProduct
+grpcurl -plaintext -d '{}'  localhost:8080 product.v1.ProductService/ListProducts
+
+curl -X POST -d '{"name": "foo", "price": 10.20}' localhost:8081/api/v1/add
+curl -X POST -d '{"name": "bar", "price": 5.10}' localhost:8081/api/v1/add
+curl localhost:8081/api/v1/list
+curl -X DELETE "localhost:8081/api/v1/delete/<ID do foo>"
+curl localhost:8081/api/v1/list

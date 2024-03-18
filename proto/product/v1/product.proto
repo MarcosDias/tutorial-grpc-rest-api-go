@@ -3,6 +3,7 @@ package product.v1;
 
 option go_package = "github.com/marcosdias/tutorial-grpc-rest-api-go/gen/product/v1";
 
+import "google/api/annotations.proto";
 
 message Product {
 	string id = 1;
@@ -35,7 +36,20 @@ message ListProductsResponse {
 }
 
 service ProductService {
-	rpc AddProduct(AddProductRequest) returns (AddProductResponse) {}
-	rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {}
-	rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
+	rpc AddProduct(AddProductRequest) returns (AddProductResponse) {
+		option (google.api.http) = {
+			post: "/api/v1/add"
+			body: "*"
+		};
+	}
+	rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {
+		option (google.api.http) = {
+			delete: "/api/v1/delete/{product_id}"
+		};
+	}
+	rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {
+		option (google.api.http) = {
+			get: "/api/v1/list"
+		};
+	}
 }

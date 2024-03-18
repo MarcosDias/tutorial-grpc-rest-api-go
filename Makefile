@@ -5,3 +5,7 @@ proto:
 .PHONY: runapi
 runapi:
 	go run ./cmd/api
+
+.PHONY: rungateway
+rungateway:
+	go run ./cmd/gateway
