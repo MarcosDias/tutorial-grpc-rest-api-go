@@ -9,3 +9,7 @@ runapi:
 .PHONY: rungateway
 rungateway:
 	go run ./cmd/gateway
+
+.PHONY: runcomplete
+runcomplete:
+	go run ./cmd/complete
