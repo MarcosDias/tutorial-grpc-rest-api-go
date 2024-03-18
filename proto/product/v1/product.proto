@@ -1,0 +1,41 @@
+syntax = "proto3";
+package product.v1;
+
+option go_package = "github.com/marcosdias/tutorial-grpc-rest-api-go/gen/product/v1";
+
+
+message Product {
+	string id = 1;
+	string name = 2;
+	double price = 3;
+}
+
+message AddProductRequest {
+	string name = 1;
+	double price = 2;
+}
+
+message AddProductResponse {
+	string product_id = 1;
+}
+
+message DeleteProductRequest {
+	string product_id = 1;
+}
+
+message DeleteProductResponse {
+	Product product = 1;
+}
+
+message ListProductsRequest {
+}
+
+message ListProductsResponse {
+	repeated Product products = 1;
+}
+
+service ProductService {
+	rpc AddProduct(AddProductRequest) returns (AddProductResponse) {}
+	rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {}
+	rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
+}
